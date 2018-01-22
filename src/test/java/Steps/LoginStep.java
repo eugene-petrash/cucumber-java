@@ -51,8 +51,8 @@ public class LoginStep {
         public String password;
 
         public User(String username, String password) {
-            username = username;
-            password = password;
+            this.username = username;
+            this.password = password;
         }
     }
 
