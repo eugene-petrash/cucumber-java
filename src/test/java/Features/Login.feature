@@ -3,7 +3,6 @@ Feature: LoginFeature
 
   Scenario: Login with correct username and password
     Given I navigate to login page
-    And I enter the username as admin and password as admin
+    And I enter the username as "admin" and password as "admin"
     And I click login button
-    And Somet
     Then I should see the userform page
