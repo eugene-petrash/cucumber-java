@@ -5,6 +5,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,9 +24,15 @@ public class LoginStep {
 
     @And("^I enter the following for Login$")
     public void iEnterTheFollowingForLogin(DataTable table) throws Throwable {
-        List<List<String>> data = table.raw();
-        System.out.println(data.get(0).get(0));
-        System.out.println(data.get(0).get(1));
+        // Create an ArrayList
+        List<User> users = new ArrayList<User>();
+        // Store all the users
+        users = table.asList(User.class);
+
+        for (User user: users) {
+            System.out.println("The username is " + user.username);
+            System.out.println("The password is " + user.password);
+        }
     }
 
     @And("^I click login button$")
@@ -36,6 +43,17 @@ public class LoginStep {
     @Then("^I should see the userform page$")
     public void iShouldSeeTheUserformPage() throws Throwable {
         System.out.println("I should see the userform page");
+    }
+
+
+    public class User {
+        public String username;
+        public String password;
+
+        public User(String username, String password) {
+            username = username;
+            password = password;
+        }
     }
 
 }

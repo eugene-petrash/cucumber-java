@@ -4,7 +4,7 @@ Feature: LoginFeature
   Scenario: Login with correct username and password
     Given I navigate to login page
     And I enter the following for Login
-      | UserName | Password  |
+      | username | password  |
       | admin    | adminpass |
     And I click login button
     Then I should see the userform page
