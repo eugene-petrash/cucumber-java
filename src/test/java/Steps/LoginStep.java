@@ -45,6 +45,11 @@ public class LoginStep {
         System.out.println("I should see the userform page");
     }
 
+    @And("^I enter ([^\"]*) and ([^\"]*) for Login$")
+    public void iEnterUsernameAndPasswordForLogin(String username, String password) throws Throwable {
+        System.out.println("I enter " + username + " and " + password + " for Login");
+    }
+
 
     public class User {
         public String username;
