@@ -1,5 +1,6 @@
-package Steps;
+package steps;
 
+import base.BaseUtil;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -11,10 +12,18 @@ import java.util.List;
 /**
  * Created by petrash on 1/22/18.
  */
-public class LoginStep {
+public class LoginStep extends BaseUtil {
+
+    private BaseUtil base;
+
+    public LoginStep(BaseUtil base) {
+        this.base = base;
+    }
+
     @Given("^I navigate to login page$")
     public void iNavigateToLoginPage() throws Throwable {
         System.out.println("I navigate to login page");
+        System.out.println("The driver is: " + base.stepInfo);
     }
 
     @And("^I enter the username as \"([^\"]*)\" and password as \"([^\"]*)\"$")
