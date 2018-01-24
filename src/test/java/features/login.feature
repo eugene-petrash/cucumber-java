@@ -12,6 +12,7 @@ Feature: LoginFeature
 
   Scenario Outline: Login with correct username and password using Scenario Outline
     Given I navigate to login page
+    And I just wanjt to see how step looks for Cucumber-Java8
     And I enter <username> and <password> for Login
     And I click login button
     Then I should see the userform page
