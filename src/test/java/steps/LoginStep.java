@@ -7,6 +7,10 @@ import cucumber.api.Transform;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import org.apache.http.util.Asserts;
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
 import transformation.EmailTransform;
 
 import java.util.ArrayList;
@@ -25,8 +29,7 @@ public class LoginStep extends BaseUtil {
 
     @Given("^I navigate to login page$")
     public void iNavigateToLoginPage() throws Throwable {
-        System.out.println("I navigate to login page");
-        System.out.println("The driver is: " + base.stepInfo);
+        base.browser.navigate().to("http://www.executeautomation.com/demosite/Login.html");
     }
 
     @And("^I enter the username as \"([^\"]*)\" and password as \"([^\"]*)\"$")
@@ -42,19 +45,19 @@ public class LoginStep extends BaseUtil {
         users = table.asList(User.class);
 
         for (User user: users) {
-            System.out.println("The username is " + user.username);
-            System.out.println("The password is " + user.password);
+            base.browser.findElement(By.name("UserName")).sendKeys(user.username);
+            base.browser.findElement(By.name("Password")).sendKeys(user.password);
         }
     }
 
     @And("^I click login button$")
     public void iClickLoginButton() throws Throwable {
-        System.out.println("I click login button");
+        base.browser.findElement(By.name("Login")).submit();
     }
 
     @Then("^I should see the userform page$")
     public void iShouldSeeTheUserformPage() throws Throwable {
-        System.out.println("I should see the userform page");
+        Assert.assertEquals(base.browser.findElement(By.cssSelector("h1")).getText(), "Execute Automation Selenium Test Site");
     }
 
     @And("^I enter ([^\"]*) and ([^\"]*) for Login$")
