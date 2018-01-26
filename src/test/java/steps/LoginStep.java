@@ -2,15 +2,11 @@ package steps;
 
 import base.BaseUtil;
 import cucumber.api.DataTable;
-import cucumber.api.PendingException;
 import cucumber.api.Transform;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import org.apache.http.util.Asserts;
-import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
+import pages.LoginPage;
 import transformation.EmailTransform;
 
 import java.util.ArrayList;
@@ -22,14 +18,16 @@ import java.util.List;
 public class LoginStep extends BaseUtil {
 
     private BaseUtil base;
+    private LoginPage page;
 
     public LoginStep(BaseUtil base) {
         this.base = base;
+        this.page = new LoginPage(base.browser);
     }
 
     @Given("^I navigate to login page$")
     public void iNavigateToLoginPage() throws Throwable {
-        base.browser.navigate().to("http://www.executeautomation.com/demosite/Login.html");
+        page.open();
     }
 
     @And("^I enter the username as \"([^\"]*)\" and password as \"([^\"]*)\"$")
@@ -37,7 +35,7 @@ public class LoginStep extends BaseUtil {
         System.out.println("I enter the username as " + username + " and password as " + password);
     }
 
-    @And("^I enter the following for Login$")
+    @And("^I enter the following for login and submit login$")
     public void iEnterTheFollowingForLogin(DataTable table) throws Throwable {
         // Create an ArrayList
         List<User> users = new ArrayList<User>();
@@ -45,19 +43,13 @@ public class LoginStep extends BaseUtil {
         users = table.asList(User.class);
 
         for (User user: users) {
-            base.browser.findElement(By.name("UserName")).sendKeys(user.username);
-            base.browser.findElement(By.name("Password")).sendKeys(user.password);
+            page.login(user.username, user.password);
         }
     }
 
     @And("^I click login button$")
     public void iClickLoginButton() throws Throwable {
         base.browser.findElement(By.name("Login")).submit();
-    }
-
-    @Then("^I should see the userform page$")
-    public void iShouldSeeTheUserformPage() throws Throwable {
-        Assert.assertEquals(base.browser.findElement(By.cssSelector("h1")).getText(), "Execute Automation Selenium Test Site");
     }
 
     @And("^I enter ([^\"]*) and ([^\"]*) for Login$")
