@@ -29,6 +29,22 @@
 
     <dependencies>
 
+        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.13.1</version>
+            <scope>test</scope>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/info.cukes/cucumber-testng -->
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>1.2.5</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -56,14 +72,6 @@
             <artifactId>cucumber-core</artifactId>
             <version>1.2.5</version>
         </dependency>
-
-
-
-
-
-
-
-
 
         <!-- https://mvnrepository.com/artifact/info.cukes/cucumber-junit -->
         <dependency>
