@@ -10,6 +10,13 @@ import cucumber.api.junit.Cucumber;
  */
 
 //@RunWith(Cucumber.class) - for JUnit
-@CucumberOptions(features = {"src/test/java/features"}, glue = "steps")
+@CucumberOptions(
+        features = {"src/test/java/features"},
+        glue = "steps",
+        format = {
+                "json:target/cucumber.json",
+                "html:target/html-reports/"
+        }
+)
 public class TestRunner extends AbstractTestNGCucumberTests {
 }

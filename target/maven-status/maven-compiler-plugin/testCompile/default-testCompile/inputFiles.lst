@@ -1,9 +1,0 @@
-/home/petrash/java_hw/cucumber-java/src/test/java/pages/MainPage.java
-/home/petrash/java_hw/cucumber-java/src/test/java/base/BaseUtil.java
-/home/petrash/java_hw/cucumber-java/src/test/java/steps/Java8VersionStep.java
-/home/petrash/java_hw/cucumber-java/src/test/java/steps/Hook.java
-/home/petrash/java_hw/cucumber-java/src/test/java/steps/MainPageSteps.java
-/home/petrash/java_hw/cucumber-java/src/test/java/transformation/EmailTransform.java
-/home/petrash/java_hw/cucumber-java/src/test/java/runner/TestRunner.java
-/home/petrash/java_hw/cucumber-java/src/test/java/pages/LoginPage.java
-/home/petrash/java_hw/cucumber-java/src/test/java/steps/LoginStep.java
